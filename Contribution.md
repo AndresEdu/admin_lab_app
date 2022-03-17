@@ -26,10 +26,15 @@ cd [tu carpeta para clonar el repo]
 ```
 Crea una rama donde harás los cambios al proyecto.
 ```
-git checkout -b [tuNombreUsuario]-[materia]
+git checkout -b [descripcion del cambio]
+```
+el ejemplo sería
+
+```
+git checkout -b encriptar_contrasenas
 ```
 
-Una vez que 
+Una vez que realices los cambios pertinentes al código fuente
 
 Después se utiliza la siguiente instrucción que añadirá los archivos listos para el commit:
 ```
@@ -37,7 +42,7 @@ git add .
 ```
 Y luego:
 ```
-git commit -m "[Tema del material]"
+git commit -m "[cambio realizado]"
 ```
 Esto guardará los cambios en el repositorio local, antes de añadirlos al remoto se utiliza la instrucción, para asegurar que tienes tu repositorio actualizado y evitar conflictos:
 ```
@@ -45,7 +50,10 @@ git pull --rebase main
 ```
 Y para subirlos al remoto se usa:
 ```
-git push origin [tuNombreUsuario]-[materia]
+git push origin [nombre de la rama]
+```
+```
+git push origin encriptar_contrasenas
 ```
 Si recargas la página de tu fork aparecerá el siguiente recuadro
 ![alt compare](https://i.ibb.co/M86fCSN/compare.png)
