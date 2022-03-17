@@ -15,33 +15,21 @@ git clone [enlace que acabas de copiar]
 ```
 La instrucción final debe quedar así:
 ``` 
-git clone https://github.com/tuNombreUsuario/ciencias-basicas.git
+git clone https://github.com/EmmanuelAriasA/admin_lab_app.git
 ```
 Reemplazando "tuNombreUsuario" por el nombre de tu cuenta de Github.
 Esta instrucción descargará el proyecto en tu computadora.
 ## Crear una rama(branch)
 En tu consola cámbiate al directorio del proyecto, si es que no estás ya en él.
 ```
-cd ciencias-basicas
+cd [tu carpeta para clonar el repo]
 ```
 Crea una rama donde harás los cambios al proyecto.
 ```
 git checkout -b [tuNombreUsuario]-[materia]
 ```
-Estos son los contenidos aceptados en "materia" por el momento:
-- diferencial
-- integral
-- vectorial
-- ecuaciones
-- lineal
 
-Por ejemplo si quisiera agregar material de algebra lineal mi rama debería llamarse `LuisFerTR-lineal`.
-
-El siguiente paso es agregar los archivos al directorio ciencias-basicas/[materia].
-
-O si tu aporte es el enlace de un artículo o una playlist de videos el paso a seguir es editar el README de la carpeta de la materia de tu aporte y agregar en la sección correspondiente el noombre del tema a agregar entre corchetes([]) y entre paréntesis el enlace del recurso, es importante agregar el tema en orden alfabético.
-En la siguiente imagen se muestra un ejemplo:
-![alt Editar Readme materia](https://i.ibb.co/TMJMbP2/readme.png)
+Una vez que 
 
 Después se utiliza la siguiente instrucción que añadirá los archivos listos para el commit:
 ```
