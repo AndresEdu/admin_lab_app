@@ -37,7 +37,7 @@ class Maquina {
         disponibilidad = json["disponibilidad"],
         piezas = json["piezas"]
             .map<Pieza>((mapString) => Pieza.fromJson(mapString))
-            .toList(Maquina.fromJson(json)),
+            .toList(),
         fotoUrl = json["fotoUrl"];
 
   Map<String, dynamic> toJson() => {
