@@ -5,6 +5,7 @@
   cant_disponible: cant_disponible int
   ubicacion: nombre varchar
   maquina: // nota: si la maquina es null, es una pieza general.
+  fotoUrl: varchar
 */
 
 class Pieza {
@@ -14,6 +15,7 @@ class Pieza {
   final int cantDisponible;
   final String ubicacion;
   final String maquina;
+  final String fotoUrl;
 
   const Pieza({
     required this.pid,
@@ -22,6 +24,7 @@ class Pieza {
     required this.cantDisponible,
     required this.ubicacion,
     required this.maquina,
+    required this.fotoUrl,
   });
 
   Pieza.fromJson(Map<String, dynamic> json)
@@ -31,6 +34,7 @@ class Pieza {
         cantDisponible = json["cantDisponible"],
         ubicacion = json["ubicacion"],
         maquina = json["maquina"];
+        fotoUrl = json["fotoUrl"];
 
   Map<String, dynamic> toJson() => {
         "pid": pid,
@@ -39,5 +43,6 @@ class Pieza {
         "cantDisponible": cantDisponible,
         "ubicacion": ubicacion,
         "maquina": maquina,
+        "fotoUrl": fotoUrl,
       };
 }
