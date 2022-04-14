@@ -11,6 +11,8 @@
 
 // ignore: todo
 // TODO: ¿Cómo manejar el login para alumnos que sean encargados?
+import 'dart:ui' show hashValues;
+
 class Alumno {
   final String aid;
   final String noControl;
@@ -22,7 +24,7 @@ class Alumno {
   final String correo;
   final bool esDeudor;
 
-  const Alumno({
+  Alumno({
     required this.aid,
     required this.noControl,
     required this.nombre,
@@ -56,4 +58,21 @@ class Alumno {
         "correo": correo,
         "esDeudor": esDeudor,
       };
+
+  @override
+  operator ==(other) =>
+      other is Alumno &&
+      other.aid == aid &&
+      other.noControl == noControl &&
+      other.nombre == nombre &&
+      other.apellidoPaterno == apellidoPaterno &&
+      other.apellidoMaterno == apellidoMaterno &&
+      other.carrera == carrera &&
+      other.contrasegna == contrasegna &&
+      other.correo == correo &&
+      other.esDeudor == esDeudor;
+
+  @override
+  int get hashCode => hashValues(nombre, apellidoPaterno, apellidoMaterno,
+      carrera, contrasegna, correo, esDeudor);
 }
