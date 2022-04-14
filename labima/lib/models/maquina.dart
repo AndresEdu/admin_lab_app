@@ -7,13 +7,15 @@
   piezas: piezas lista 
 */
 
+import 'package:labima/models/pieza.dart';
+
 class Maquina {
-  final int mid;
+  final String mid;
   final String nombre;
   final int horasPrestada;
   final DateTime ultimoMantto;
   final bool disponibilidad;
-  final List piezas;
+  final List<Pieza> piezas;
 
   const Maquina({
     required this.mid,
@@ -24,12 +26,22 @@ class Maquina {
     required this.piezas,
   });
 
+  Maquina.fromJson(Map<String, dynamic> json)
+      : mid = json["mid"],
+        nombre = json["nombre"],
+        horasPrestada = json["horasPrestada"],
+        ultimoMantto = json["ultimoMantto"],
+        disponibilidad = json["disponibilidad"],
+        piezas = json["piezas"]
+            .map<Pieza>((mapString) => Pieza.fromJson(mapString))
+            .toList(Maquina.fromJson(json));
+
   Map<String, dynamic> toJson() => {
         "mid": mid,
         "nombre": nombre,
         "horasPrestada": horasPrestada,
         "ultimoMantto": ultimoMantto,
         "disponibilidad": disponibilidad,
-        "piezas": piezas,
+        "piezas": piezas.map((i) => i.toJson()).toList(),
       };
 }

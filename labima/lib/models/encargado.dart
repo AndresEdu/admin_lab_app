@@ -7,3 +7,6 @@
   contrasegna: contrasegna varchar 
   correo: correo varchar
 */
+
+// TODO: ¿Servirá reutilizar la clase alumno?
+//       ¿Se deberá crear una clase trabajador?
