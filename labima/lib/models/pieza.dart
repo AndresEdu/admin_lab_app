@@ -7,8 +7,13 @@
   maquina: // nota: si la maquina es null, es una pieza general.
   fotoUrl: varchar
 */
+import 'dart:ui' show hashValues;
+import 'package:json_annotation/json_annotation.dart';
+part 'pieza.g.dart';
 
+@JsonSerializable()
 class Pieza {
+  @JsonKey(required: true)
   final String pid;
   final String nombre;
   final int cantTotal;
@@ -27,6 +32,7 @@ class Pieza {
     required this.fotoUrl,
   });
 
+<<<<<<< HEAD
   Pieza.fromJson(Map<String, dynamic> json)
       : pid = json["pid"],
         nombre = json["nombre"],
@@ -45,4 +51,23 @@ class Pieza {
         "maquina": maquina,
         "fotoUrl": fotoUrl,
       };
+=======
+  factory Pieza.fromJson(Map<String, dynamic> json) => _$PiezaFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PiezaToJson(this);
+
+  @override
+  operator ==(other) =>
+      other is Pieza &&
+      other.pid == pid &&
+      other.cantTotal == cantTotal &&
+      other.nombre == nombre &&
+      other.cantDisponible == cantDisponible &&
+      other.ubicacion == ubicacion &&
+      other.maquina == maquina;
+
+  @override
+  int get hashCode =>
+      hashValues(pid, nombre, cantDisponible, ubicacion, maquina);
+>>>>>>> ac323a6 (Refactorizar métodos fromJson y toJson)
 }

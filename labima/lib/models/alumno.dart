@@ -12,8 +12,12 @@
 // ignore: todo
 // TODO: ¿Cómo manejar el login para alumnos que sean encargados?
 import 'dart:ui' show hashValues;
+import 'package:json_annotation/json_annotation.dart';
+part 'alumno.g.dart';
 
+@JsonSerializable()
 class Alumno {
+  @JsonKey(required: true)
   final String aid;
   final String noControl;
   final String nombre;
@@ -36,28 +40,9 @@ class Alumno {
     required this.esDeudor,
   });
 
-  Alumno.fromJson(Map<String, dynamic> json)
-      : aid = json["aid"],
-        noControl = json["noControl"],
-        nombre = json["nombre"],
-        apellidoPaterno = json["apellidoPaterno"],
-        apellidoMaterno = json["apellidoMaterno"],
-        carrera = json["carrera"],
-        contrasegna = json["contrasegna"],
-        correo = json["correo"],
-        esDeudor = json["esDeudor"];
+  factory Alumno.fromJson(Map<String, dynamic> json) => _$AlumnoFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "aid": aid,
-        "noControl": noControl,
-        "nombre": nombre,
-        "apellidoPaterno": apellidoPaterno,
-        "apellidoMaterno": apellidoMaterno,
-        "carrera": carrera,
-        "contrasegna": contrasegna,
-        "correo": correo,
-        "esDeudor": esDeudor,
-      };
+  Map<String, dynamic> toJson() => _$AlumnoToJson(this);
 
   @override
   operator ==(other) =>
@@ -73,6 +58,6 @@ class Alumno {
       other.esDeudor == esDeudor;
 
   @override
-  int get hashCode => hashValues(nombre, apellidoPaterno, apellidoMaterno,
+  int get hashCode => hashValues(aid, nombre, apellidoPaterno, apellidoMaterno,
       carrera, contrasegna, correo, esDeudor);
 }
