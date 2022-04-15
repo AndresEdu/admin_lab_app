@@ -32,26 +32,6 @@ class Pieza {
     required this.fotoUrl,
   });
 
-<<<<<<< HEAD
-  Pieza.fromJson(Map<String, dynamic> json)
-      : pid = json["pid"],
-        nombre = json["nombre"],
-        cantTotal = json["cantTotal"],
-        cantDisponible = json["cantDisponible"],
-        ubicacion = json["ubicacion"],
-        maquina = json["maquina"];
-        fotoUrl = json["fotoUrl"];
-
-  Map<String, dynamic> toJson() => {
-        "pid": pid,
-        "nombre": nombre,
-        "cantTotal": cantTotal,
-        "cantDisponible": cantDisponible,
-        "ubicacion": ubicacion,
-        "maquina": maquina,
-        "fotoUrl": fotoUrl,
-      };
-=======
   factory Pieza.fromJson(Map<String, dynamic> json) => _$PiezaFromJson(json);
 
   Map<String, dynamic> toJson() => _$PiezaToJson(this);
@@ -69,5 +49,4 @@ class Pieza {
   @override
   int get hashCode =>
       hashValues(pid, nombre, cantDisponible, ubicacion, maquina);
->>>>>>> ac323a6 (Refactorizar métodos fromJson y toJson)
 }
