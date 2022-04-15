@@ -52,5 +52,4 @@ class Maquina {
   @override
   int get hashCode => hashValues(mid, nombre, ultimoMantto, horasPrestada,
       disponibilidad, hashList(piezas));
->>>>>>> ac323a6 (Refactorizar métodos fromJson y toJson)
 }
