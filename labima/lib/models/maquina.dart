@@ -34,28 +34,6 @@ class Maquina {
     required this.fotoUrl,
   });
 
-<<<<<<< HEAD
-  Maquina.fromJson(Map<String, dynamic> json)
-      : mid = json["mid"],
-        nombre = json["nombre"],
-        horasPrestada = json["horasPrestada"],
-        ultimoMantto = json["ultimoMantto"],
-        disponibilidad = json["disponibilidad"],
-        piezas = json["piezas"]
-            .map<Pieza>((mapString) => Pieza.fromJson(mapString))
-            .toList(),
-        fotoUrl = json["fotoUrl"];
-
-  Map<String, dynamic> toJson() => {
-        "mid": mid,
-        "nombre": nombre,
-        "horasPrestada": horasPrestada,
-        "ultimoMantto": ultimoMantto,
-        "disponibilidad": disponibilidad,
-        "piezas": piezas.map((i) => i.toJson()).toList(),
-        "fotoUrl": fotoUrl,
-      };
-=======
   factory Maquina.fromJson(Map<String, dynamic> json) =>
       _$MaquinaFromJson(json);
 
