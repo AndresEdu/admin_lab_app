@@ -3,8 +3,12 @@
   nombre: nombre varchar
 */
 import 'dart:ui' show hashValues;
+import 'package:json_annotation/json_annotation.dart';
+part 'carrera.g.dart';
 
+@JsonSerializable()
 class Carrera {
+  @JsonKey(required: true)
   final String cid;
   final String nombre;
 
@@ -13,14 +17,10 @@ class Carrera {
     required this.nombre,
   });
 
-  Carrera.fromJson(Map<String, dynamic> json)
-      : cid = json["cid"],
-        nombre = json["nombre"];
+  factory Carrera.fromJson(Map<String, dynamic> json) =>
+      _$CarreraFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "cid": cid,
-        "nombre": nombre,
-      };
+  Map<String, dynamic> toJson() => _$CarreraToJson(this);
 
   @override
   operator ==(other) =>
