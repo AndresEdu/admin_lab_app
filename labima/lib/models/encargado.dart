@@ -6,7 +6,8 @@
   carrera: nombre varchar [carrera/nombre]
   contrasegna: contrasegna varchar 
   correo: correo varchar
+  horas servicio: hrs_serv dateTime
 */
 
-// TODO: ¿Servirá reutilizar la clase alumno?
-//       ¿Se deberá crear una clase trabajador?
+// TODO: ¿Servirá reutilizar la clase alumno? SI
+//       ¿Se deberá crear una clase trabajador? SI
