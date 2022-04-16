@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:labima/models/alumno.dart';
+import 'package:labima/models.dart';
 
 void main() {
   group('Alumno', () {
@@ -26,7 +26,7 @@ void main() {
       json["correo"] = "l19141205@queretaro.tecnm.mx";
       json["esDeudor"] = false;
 
-      expect(alumno.toJson(), json);
+      expect(alumno.toJson(), equals(json));
     });
 
     test('Construir Alumno a partir de map', () {
@@ -65,8 +65,19 @@ void main() {
           correo: "l19141205@queretaro.tecnm.mx",
           esDeudor: true); // esDeudor diferente
 
-      expect(alumno1 == alumno2, true);
-      expect(alumno1 == alumno3, false);
+      expect(alumno1, equals(alumno2));
+      expect(alumno1, isNot(equals(alumno3)));
     });
   });
+
+  /*group('Carrera', () {
+    test('Convertir carrera en json', () {
+      Carrera c1 = Carrera(cid: "ax98765d7", nombre: "ISC");
+
+      Map<String, dynamic> json = <String, dynamic>{
+        "cid": "ax98765d7",
+        "nombre": "ISC"
+      };
+    });
+  });*/
 }
