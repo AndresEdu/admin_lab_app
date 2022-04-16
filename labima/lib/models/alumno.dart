@@ -26,7 +26,11 @@ class Alumno {
   final String carrera;
   final String contrasegna;
   final String correo;
+  final bool sancion;
   final bool esDeudor;
+
+  //Lista de clases registrdas por el alumno
+  //final List<String> clases;
 
   Alumno({
     required this.aid,
@@ -37,6 +41,7 @@ class Alumno {
     required this.carrera,
     required this.contrasegna,
     required this.correo,
+    required this.sancion,
     required this.esDeudor,
   });
 
@@ -55,9 +60,10 @@ class Alumno {
       other.carrera == carrera &&
       other.contrasegna == contrasegna &&
       other.correo == correo &&
+      other.sancion == sancion &&
       other.esDeudor == esDeudor;
 
   @override
   int get hashCode => hashValues(aid, nombre, apellidoPaterno, apellidoMaterno,
-      carrera, contrasegna, correo, esDeudor);
+      carrera, contrasegna, correo, sancion, esDeudor);
 }
