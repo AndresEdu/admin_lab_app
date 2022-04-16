@@ -15,6 +15,7 @@ void main() {
           carrera: "ISC",
           contrasegna: "123456",
           correo: "l19141205@queretaro.tecnm.mx",
+          sancion: true,
           esDeudor: false);
 
       Map<String, dynamic> json = <String, dynamic>{};
@@ -26,6 +27,7 @@ void main() {
       json["carrera"] = "ISC";
       json["contrasegna"] = "123456";
       json["correo"] = "l19141205@queretaro.tecnm.mx";
+      json["sancion"] = true;
       json["esDeudor"] = false;
 
       expect(alumno.toJson(), equals(json));
@@ -41,6 +43,7 @@ void main() {
       json["carrera"] = "ISC";
       json["contrasegna"] = "123456";
       json["correo"] = "l19141205@queretaro.tecnm.mx";
+      json["sancion"] = true;
       json["esDeudor"] = false;
 
       Alumno alumno1 = Alumno.fromJson(json);
@@ -54,6 +57,7 @@ void main() {
           carrera: "ISC",
           contrasegna: "123456",
           correo: "l19141205@queretaro.tecnm.mx",
+          sancion: false,
           esDeudor: false);
 
       Alumno alumno3 = Alumno(
@@ -65,6 +69,7 @@ void main() {
           carrera: "ISC",
           contrasegna: "123456",
           correo: "l19141205@queretaro.tecnm.mx",
+          sancion: false,
           esDeudor: true); // esDeudor diferente
 
       expect(alumno1, equals(alumno2));
