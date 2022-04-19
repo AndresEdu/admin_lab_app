@@ -22,7 +22,7 @@ class Pieza {
   final String maquina;
   final String fotoUrl;
 
-  const Pieza({
+  Pieza({
     required this.pid,
     required this.nombre,
     required this.cantTotal,

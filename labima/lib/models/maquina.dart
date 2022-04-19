@@ -6,6 +6,34 @@
   disponibilidad: disponibilidad bool
   piezas: piezas lista 
   fotoUrl: varchar
+
+  {
+    "mid": "aksjsjd23",
+    "nombre": "maquina1",
+    "horas_prestada": 3,
+    "ultimo_mantto": 23/01/2022,
+    "disponibilidad": true,
+
+    "piezas": [
+      {
+        "pid": "akaks89",
+        "nombre": blabla
+        ...
+      },
+      {
+        "pid": "akaks89",
+        "nombre": blabla
+        ...
+      },
+      {
+        "pid": "akaks89",
+        "nombre": blabla
+        ...
+      }
+    ],
+
+    "fotoUrl": "blabla.com"
+  }
 */
 
 import 'package:labima/models/pieza.dart';
@@ -19,7 +47,7 @@ class Maquina {
   final String mid;
   final String nombre;
   final int horasPrestada;
-  final DateTime ultimoMantto;
+  final String ultimoMantto;
   final bool disponibilidad;
   final List<Pieza> piezas;
   final String fotoUrl;
