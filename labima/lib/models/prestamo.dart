@@ -10,5 +10,23 @@
 
   fechaPrestamo: dateTime
   horaInicial: dateTime
-  horaLimite: dateTime                        
+  horaLimite: dateTime     
+
+  prid: "ajskxx7889",
+  encargado: "sjksjsd897",
+  solicitante: "jskjkdsj89",
+  tipoSolicitante: 1,
+
+  maquina: "aksk456",
+  detallesPrestamo: {
+    detalles1: "iddetallesprestamo1",
+    detalles2: "iddetallesprestamo2"
+  }                   
 */
+
+
+
+
+
+
+
