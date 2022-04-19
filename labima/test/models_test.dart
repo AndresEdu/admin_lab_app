@@ -251,4 +251,45 @@ void main() {
       expect(profesor1, isNot(equals(profesor3)));
     });
   });
+  
+  group('Ubicacion', () {
+    test('Generar map a partir de Ubicacion', () {
+      Ubicacion ubicacion = Ubicacion(
+          ubid: "maq3",
+          nombre: "maquinado3",
+          seccion: "4",
+          );
+
+      Map<String, dynamic> json = <String, dynamic>{};
+      json["ubid"] = "maq3";
+      json["nombre"] = "maquinado3";
+      json["seccion"] = "4";
+
+      expect(ubicacion.toJson(), equals(json));
+    });
+
+    test('Construir Ubicacion a partir de map', () {
+      Map<String, dynamic> json = <String, dynamic>{};
+      json["ubid"] = "maq3";
+      json["nombre"] = "maquinado3";
+      json["seccion"] = "4";
+
+      Ubicacion profesor1 = Ubicacion.fromJson(json);
+
+      Ubicacion profesor2 = Ubicacion(
+          ubid: "maq3",
+          nombre: "maquinado3",
+          seccion: "4",
+          );
+
+      Ubicacion profesor3 = Ubicacion(
+          ubid: "maq3",
+          nombre: "maquinado3",
+          seccion: "3",
+          );
+
+      expect(profesor1, equals(profesor2));
+      expect(profesor1, isNot(equals(profesor3)));
+    });
+  });
 }
