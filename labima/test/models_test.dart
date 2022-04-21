@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:labima/models.dart';
 
@@ -57,7 +55,7 @@ void main() {
           carrera: "ISC",
           contrasegna: "123456",
           correo: "l19141205@queretaro.tecnm.mx",
-          sancion: false,
+          sancion: true,
           esDeudor: false);
 
       Alumno alumno3 = Alumno(
@@ -114,8 +112,8 @@ void main() {
         carrera: "ISC",
         contrasegna: "123456",
         correo: "l19141205@queretaro.tecnm.mx",
-        hrInicio: DateTime.now(),
-        hrFinal: DateTime.utc(1989, DateTime.november, 9),
+        hrInicio: DateTime(2022, 04, 21, 10, 0, 0),
+        hrFinal: DateTime(2022, 04, 21, 14, 0, 0),
         hrTotal: 4,
       );
 
@@ -128,8 +126,8 @@ void main() {
       json["carrera"] = "ISC";
       json["contrasegna"] = "123456";
       json["correo"] = "l19141205@queretaro.tecnm.mx";
-      json["hrInicio"] = DateTime.now();
-      json["hrFinal"] = DateTime.utc(1989, DateTime.november, 9);
+      json["hrInicio"] = DateTime(2022, 04, 21, 10, 0, 0).toIso8601String();
+      json["hrFinal"] = DateTime(2022, 04, 21, 14, 0, 0).toIso8601String();
       json["hrTotal"] = 4;
 
       expect(encargado.toJson(), equals(json));
@@ -145,8 +143,8 @@ void main() {
       json["carrera"] = "ISC";
       json["contrasegna"] = "123456";
       json["correo"] = "l19141205@queretaro.tecnm.mx";
-      json["hrInicio"] = DateTime.now();
-      json["hrFinal"] = DateTime.utc(1989, DateTime.november, 9);
+      json["hrInicio"] = DateTime(2022, 04, 21, 10, 0, 0).toIso8601String();
+      json["hrFinal"] = DateTime(2022, 04, 21, 14, 0, 0).toIso8601String();
       json["hrTotal"] = 4;
 
       Encargado encargado1 = Encargado.fromJson(json);
@@ -160,8 +158,8 @@ void main() {
         carrera: "ISC",
         contrasegna: "123456",
         correo: "l19141205@queretaro.tecnm.mx",
-        hrInicio: DateTime.now(),
-        hrFinal: DateTime.utc(1989, DateTime.november, 9),
+        hrInicio: DateTime(2022, 04, 21, 10, 0, 0),
+        hrFinal: DateTime(2022, 04, 21, 14, 0, 0),
         hrTotal: 4,
       );
 
@@ -174,8 +172,8 @@ void main() {
         carrera: "ISC",
         contrasegna: "123456",
         correo: "l19141205@queretaro.tecnm.mx",
-        hrInicio: DateTime.utc(1989, DateTime.november, 9),
-        hrFinal: DateTime.now(),
+        hrInicio: DateTime(2022, 04, 21, 10, 0, 0),
+        hrFinal: DateTime(2022, 04, 21, 16, 0, 0),
         hrTotal: 6,
       ); //horas diferentes
 
@@ -323,16 +321,6 @@ void main() {
         ubicacion: "Almacen principal",
         maquina: "Frisadora",
         fotoUrl: "foto3.com",
-      );
-
-      Pieza p4 = Pieza(
-        pid: "123456",
-        nombre: "pieza1",
-        cantTotal: 5,
-        cantDisponible: 2,
-        ubicacion: "sec3",
-        maquina: "sdsad",
-        fotoUrl: "blablap1.com",
       );
 
       Maquina maquina = Maquina(
@@ -487,6 +475,69 @@ void main() {
 
       expect(maquina1, equals(maquina2));
       expect(maquina1, isNot(equals(maquina3)));
+    });
+  });
+
+  group("Carrera", () {
+    test("Construir map a partir de pieza", () {
+      Pieza pieza = Pieza(
+        pid: "123456",
+        nombre: "pieza1",
+        cantTotal: 5,
+        cantDisponible: 2,
+        ubicacion: "sec3",
+        maquina: "sdsad",
+        fotoUrl: "blablap1.com",
+      );
+
+      Map<String, dynamic> json = <String, dynamic>{
+        "pid": "123456",
+        "nombre": "pieza1",
+        "cantTotal": 5,
+        "cantDisponible": 2,
+        "ubicacion": "sec3",
+        "maquina": "sdsad",
+        "fotoUrl": "blablap1.com",
+      };
+
+      expect(pieza.toJson(), equals(json));
+    });
+
+    test("Construir pieza a partir de map", () {
+      Map<String, dynamic> json = <String, dynamic>{
+        "pid": "123456",
+        "nombre": "pieza1",
+        "cantTotal": 5,
+        "cantDisponible": 2,
+        "ubicacion": "sec3",
+        "maquina": "sdsad",
+        "fotoUrl": "blablap1.com",
+      };
+
+      Pieza p1 = Pieza.fromJson(json);
+
+      Pieza p2 = Pieza(
+        pid: "123456",
+        nombre: "pieza1",
+        cantTotal: 5,
+        cantDisponible: 2,
+        ubicacion: "sec3",
+        maquina: "sdsad",
+        fotoUrl: "blablap1.com",
+      );
+
+      Pieza p3 = Pieza(
+        pid: "123456",
+        nombre: "pieza1",
+        cantTotal: 7,
+        cantDisponible: 2,
+        ubicacion: "sec3",
+        maquina: "sdsad",
+        fotoUrl: "blablap1.com",
+      );
+
+      expect(p1, equals(p2));
+      expect(p1, isNot(equals(p3)));
     });
   });
 }
