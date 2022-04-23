@@ -6,6 +6,7 @@
   carrera: nombre varchar [carrera/nombre]
   contrasegna: contrasegna varchar 
   correo: correo varchar
+  sancion: sancion bool
   esDeudor: Bool
 */
 
