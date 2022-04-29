@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:labima/models.dart';
+import 'package:labima/models/models.dart';
 
 void main() {
   group('Alumno', () {
