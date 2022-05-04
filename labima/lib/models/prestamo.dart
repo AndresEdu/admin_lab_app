@@ -23,8 +23,6 @@
     detalles2: "iddetallesprestamo2"
   }                   
 */
-
-import 'dart:html';
 import 'dart:ui' show hashValues, hashList;
 import 'package:json_annotation/json_annotation.dart';
 part 'prestamo.g.dart';
