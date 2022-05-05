@@ -17,9 +17,10 @@
 import 'package:labima/models/prestamo.dart';
 import 'dart:ui' show hashValues, hashList;
 import 'package:json_annotation/json_annotation.dart';
+import 'package:collection/collection.dart';
 part 'devolucion.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Devolucion {
   @JsonKey(required: true)
   final String dvid;
@@ -43,14 +44,17 @@ class Devolucion {
   Map<String, dynamic> toJson() => _$DevolucionToJson(this);
 
   @override
-  operator ==(other) =>
-      other is Devolucion &&
-      other.dvid == dvid &&
-      other.encargadoId == encargadoId &&
-      other.devuelvePiezas == devuelvePiezas &&
-      other.prestamo == prestamo &&
-      other.completo == completo &&
-      other.fecha == fecha;
+  operator ==(other) {
+    Function deepEq = const DeepCollectionEquality().equals;
+
+    return other is Devolucion &&
+        other.dvid == dvid &&
+        other.encargadoId == encargadoId &&
+        deepEq(other.devuelvePiezas, devuelvePiezas) &&
+        other.prestamo == prestamo &&
+        other.completo == completo &&
+        other.fecha == fecha;
+  }
 
   @override
   int get hashCode => hashValues(
