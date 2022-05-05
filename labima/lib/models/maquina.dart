@@ -40,14 +40,17 @@ class Maquina {
   Map<String, dynamic> toJson() => _$MaquinaToJson(this);
 
   @override
-  operator ==(other) =>
-      other is Maquina &&
-      other.mid == mid &&
-      other.horasPrestada == horasPrestada &&
-      other.nombre == nombre &&
-      other.ultimoMantto == ultimoMantto &&
-      other.disponibilidad == disponibilidad &&
-      const DeepCollectionEquality().equals(other.piezas, piezas);
+  operator ==(other) {
+    Function deepEq = const DeepCollectionEquality().equals;
+
+    return other is Maquina &&
+        other.mid == mid &&
+        other.horasPrestada == horasPrestada &&
+        other.nombre == nombre &&
+        other.ultimoMantto == ultimoMantto &&
+        other.disponibilidad == disponibilidad &&
+        deepEq(other.piezas, piezas);
+  }
 
   @override
   int get hashCode => hashValues(mid, nombre, ultimoMantto, horasPrestada,

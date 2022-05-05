@@ -25,9 +25,10 @@
 */
 import 'dart:ui' show hashValues, hashList;
 import 'package:json_annotation/json_annotation.dart';
+import 'package:collection/collection.dart';
 part 'prestamo.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Prestamo {
   @JsonKey(required: true)
   final String prid;
@@ -51,23 +52,28 @@ class Prestamo {
     required this.horaInicial,
     required this.horaLimite,
   });
+
   factory Prestamo.fromJson(Map<String, dynamic> json) =>
       _$PrestamoFromJson(json);
 
   Map<String, dynamic> toJson() => _$PrestamoToJson(this);
 
   @override
-  operator ==(other) =>
-      other is Prestamo &&
-      other.prid == prid &&
-      other.encargadoId == encargadoId &&
-      other.solicitantesIds == solicitantesIds &&
-      other.tipoSolicitante == tipoSolicitante &&
-      other.maquinaId == maquinaId &&
-      other.prestaPiezas == prestaPiezas &&
-      other.fecha == fecha &&
-      other.horaInicial == horaInicial &&
-      other.horaLimite == horaLimite;
+  operator ==(other) {
+    Function eq = const ListEquality().equals;
+    Function deepEq = const DeepCollectionEquality().equals;
+
+    return other is Prestamo &&
+        other.prid == prid &&
+        other.encargadoId == encargadoId &&
+        eq(other.solicitantesIds, solicitantesIds) &&
+        other.tipoSolicitante == tipoSolicitante &&
+        other.maquinaId == maquinaId &&
+        deepEq(other.prestaPiezas, prestaPiezas) &&
+        other.fecha == fecha &&
+        other.horaInicial == horaInicial &&
+        other.horaLimite == horaLimite;
+  }
 
   @override
   int get hashCode => hashValues(
