@@ -13,9 +13,10 @@
 
 import 'dart:ui' show hashValues, hashList;
 import 'package:json_annotation/json_annotation.dart';
+import 'package:collection/collection.dart';
 part 'deudas.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class Deuda {
   @JsonKey(required: true)
   final String ddid;
@@ -35,8 +36,12 @@ class Deuda {
   Map<String, dynamic> toJson() => _$DeudaToJson(this);
 
   @override
-  operator ==(other) =>
-      other is Deuda && other.ddid == ddid && other.debePiezas == debePiezas;
+  operator ==(other) {
+    Function deepEq = const DeepCollectionEquality().equals;
+    return other is Deuda &&
+        other.ddid == ddid &&
+        deepEq(other.debePiezas, debePiezas);
+  }
 
   @override
   int get hashCode => hashValues(ddid, hashList(debePiezas));
