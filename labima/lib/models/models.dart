@@ -10,3 +10,4 @@ export 'package:labima/models/investigador.dart';
 export 'package:labima/models/maquina.dart';
 export 'package:labima/models/ubicacion.dart';
 export 'package:labima/models/profesor.dart';
+export 'package:labima/models/prestamo.dart';
